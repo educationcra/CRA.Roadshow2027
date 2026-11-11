@@ -2,146 +2,122 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@educationcra | CRA Social Links</title>
-    <!-- โหลด Tailwind CSS เพื่อจัดการ Layout และ Styling -->
+    <!-- โหลด Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- โหลด FontAwesome สำหรับไอคอน Social Media -->
+    <!-- โหลด FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- โหลด Font Noto Sans Thai เพื่อให้ฟอนต์ภาษาไทยสวยงาม -->
+    <!-- โหลด Font -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         body {
             font-family: 'Noto Sans Thai', sans-serif;
-            /* นำ background-image ออกจาก body เพื่อไปใช้แท็ก img แทน ป้องกันปัญหามือถือโหลดไม่ขึ้น */
+            background-color: #e6f4f9; /* ใส่สีสำรองที่ body ไว้กันเหนียว */
         }
-
-        /* แอนิเมชันสำหรับหมีขับรถ (แกว่งซ้ายขวา) */
         @keyframes swing {
             0% { transform: rotate(-5deg); }
             50% { transform: rotate(5deg); }
             100% { transform: rotate(-5deg); }
         }
-        
         .bear-swing {
             animation: swing 3s ease-in-out infinite;
-            transform-origin: bottom center; /* จุดหมุนอยู่ตรงฐานด้านล่าง */
+            transform-origin: bottom center;
             display: inline-block;
         }
-
-        /* แอนิเมชันสำหรับเมฆลอย */
         @keyframes drift {
             0% { transform: translateX(-200px); }
             100% { transform: translateX(110vw); }
         }
-        
         .cloud {
-            position: fixed;
-            z-index: -1; /* ให้อยู่หลังคอนเทนต์ แต่ยังอยู่บนรูปพื้นหลัง */
+            position: absolute; /* เปลี่ยนจาก fixed เป็น absolute เพื่อให้อยู่ในกรอบ Wrapper */
+            z-index: 0;
             opacity: 0.7;
         }
-        
         .cloud-1 { top: 10%; animation: drift 35s linear infinite; width: 140px; }
         .cloud-2 { top: 30%; animation: drift 45s linear infinite; width: 100px; animation-delay: -15s; }
         .cloud-3 { top: 65%; animation: drift 40s linear infinite; width: 160px; animation-delay: -25s; }
-
-        /* สไตล์สำหรับปุ่มลิงก์ */
-        .social-button {
-            transition: all 0.3s ease;
-        }
-        .social-button:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
+        .social-button { transition: all 0.3s ease; }
+        .social-button:hover { transform: scale(1.02); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
     </style>
 </head>
-<body class="min-h-screen text-slate-800 flex justify-center relative overflow-x-hidden">
 
-    <!-- รูปพื้นหลัง (แก้ปัญหามือถือ) ใช้ object-cover ทำให้เต็มจอ และ z-[-2] ให้อยู่หลังสุด พร้อม object-bottom เพื่อล็อกพื้นถนน -->
-    <img src="https://s.imgz.io/2026/11/11/BG-CRA52643c1e7ec3d2b4.png" alt="Background" class="fixed top-0 left-0 w-full h-full object-cover object-bottom z-[-2] pointer-events-none">
+<body class="text-slate-800 m-0 p-0 overflow-x-hidden">
 
-    <!-- SVG เมฆลอย (ตกแต่งพื้นหลัง) -->
-    <svg class="cloud cloud-1" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.5 17.5L17.5 17.5C19.9853 17.5 22 15.4853 22 13C22 10.642 20.1993 8.71 17.9048 8.52044C17.4338 5.40908 14.7709 3 11.5 3C8.42398 3 5.82397 5.09703 5.12782 7.95484C2.26127 8.28313 0 10.741 0 13.75C0 15.8204 1.67963 17.5 3.75 17.5H6.5Z"></path>
-    </svg>
-    <svg class="cloud cloud-2" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.5 17.5L17.5 17.5C19.9853 17.5 22 15.4853 22 13C22 10.642 20.1993 8.71 17.9048 8.52044C17.4338 5.40908 14.7709 3 11.5 3C8.42398 3 5.82397 5.09703 5.12782 7.95484C2.26127 8.28313 0 10.741 0 13.75C0 15.8204 1.67963 17.5 3.75 17.5H6.5Z"></path>
-    </svg>
-    <svg class="cloud cloud-3" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.5 17.5L17.5 17.5C19.9853 17.5 22 15.4853 22 13C22 10.642 20.1993 8.71 17.9048 8.52044C17.4338 5.40908 14.7709 3 11.5 3C8.42398 3 5.82397 5.09703 5.12782 7.95484C2.26127 8.28313 0 10.741 0 13.75C0 15.8204 1.67963 17.5 3.75 17.5H6.5Z"></path>
-    </svg>
-
-    <!-- คอนเทนเนอร์หลัก จำกัดความกว้าง เอา min-h-screen ออกเพื่อให้เลื่อนพอดีเนื้อหา -->
-    <div class="w-full max-w-md px-6 pt-10 pb-0 flex flex-col items-center">
+    <!-- 🔥 แก้ปัญหา iOS: ย้าย Background มาใส่ใน Wrapper (div) แทน <body> 🔥 -->
+    <div class="relative w-full min-h-[100dvh] flex flex-col justify-between items-center overflow-hidden" 
+         style="background-color: #e6f4f9; background-image: url('https://s.imgz.io/2026/11/11/BG-CRA52643c1e7ec3d2b4.png'); background-size: cover; background-position: bottom center; background-repeat: no-repeat;">
         
-        <!-- ส่วน Profile (โลโก้ และ ชื่อ) -->
-        <div class="flex flex-col items-center mb-8">
-            <div class="w-24 h-24 md:w-28 md:h-28 rounded-full bg-white shadow-lg overflow-hidden flex items-center justify-center p-2 mb-4">
-                <img src="https://s.imgz.io/2026/11/11/LOGO-Educationef44dfb549768d99.png" alt="CRA Education Logo" class="w-full h-full object-contain">
+        <!-- SVG เมฆลอย (อยู่ข้างใน Wrapper) -->
+        <svg class="cloud cloud-1" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.5 17.5L17.5 17.5C19.9853 17.5 22 15.4853 22 13C22 10.642 20.1993 8.71 17.9048 8.52044C17.4338 5.40908 14.7709 3 11.5 3C8.42398 3 5.82397 5.09703 5.12782 7.95484C2.26127 8.28313 0 10.741 0 13.75C0 15.8204 1.67963 17.5 3.75 17.5H6.5Z"></path>
+        </svg>
+        <svg class="cloud cloud-2" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.5 17.5L17.5 17.5C19.9853 17.5 22 15.4853 22 13C22 10.642 20.1993 8.71 17.9048 8.52044C17.4338 5.40908 14.7709 3 11.5 3C8.42398 3 5.82397 5.09703 5.12782 7.95484C2.26127 8.28313 0 10.741 0 13.75C0 15.8204 1.67963 17.5 3.75 17.5H6.5Z"></path>
+        </svg>
+        <svg class="cloud cloud-3" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.5 17.5L17.5 17.5C19.9853 17.5 22 15.4853 22 13C22 10.642 20.1993 8.71 17.9048 8.52044C17.4338 5.40908 14.7709 3 11.5 3C8.42398 3 5.82397 5.09703 5.12782 7.95484C2.26127 8.28313 0 10.741 0 13.75C0 15.8204 1.67963 17.5 3.75 17.5H6.5Z"></path>
+        </svg>
+
+        <!-- ส่วนบน: Profile และ ปุ่มลิงก์ -->
+        <div class="w-full max-w-md px-6 pt-10 flex flex-col items-center z-10">
+            <div class="flex flex-col items-center mb-8">
+                <div class="w-24 h-24 md:w-28 md:h-28 rounded-full bg-white shadow-lg overflow-hidden flex items-center justify-center p-2 mb-4">
+                    <img src="https://s.imgz.io/2026/11/11/LOGO-Educationef44dfb549768d99.png" alt="CRA Education Logo" class="w-full h-full object-contain">
+                </div>
+                <h1 class="text-2xl font-bold text-[#002f6c] mb-1">@educationcra</h1>
+                <p class="text-sm md:text-base font-medium text-[#002f6c] text-center">ติดตามข้อมูลด้านการศึกษาราชวิทยาลัยจุฬาภรณ์</p>
             </div>
-            <h1 class="text-2xl font-bold text-[#002f6c] mb-1">@educationcra</h1>
-            <p class="text-sm md:text-base font-medium text-[#002f6c] text-center">ติดตามข้อมูลด้านการศึกษาราชวิทยาลัยจุฬาภรณ์</p>
+
+            <div class="w-full flex flex-col gap-4">
+                <a href="https://www.instagram.com/educationcra" target="_blank" rel="noopener noreferrer" 
+                   class="social-button bg-white rounded-xl py-4 px-6 flex items-center shadow-sm w-full relative">
+                    <div class="absolute left-6 text-3xl" style="background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <span class="w-full text-center font-semibold text-[#002f6c] text-lg">Instagram</span>
+                </a>
+                <a href="https://www.facebook.com/educationcra" target="_blank" rel="noopener noreferrer" 
+                   class="social-button bg-white rounded-xl py-4 px-6 flex items-center shadow-sm w-full relative">
+                    <div class="absolute left-6 text-3xl text-blue-600">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <span class="w-full text-center font-semibold text-[#002f6c] text-lg">Facebook</span>
+                </a>
+                <a href="https://www.tiktok.com/@educationcra" target="_blank" rel="noopener noreferrer" 
+                   class="social-button bg-[#f3f4f6] rounded-xl py-4 px-6 flex items-center shadow-sm w-full relative">
+                    <div class="absolute left-6 text-3xl text-black">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <span class="w-full text-center font-semibold text-[#002f6c] text-lg">TikTok</span>
+                </a>
+                <a href="https://x.com/educationcra" target="_blank" rel="noopener noreferrer" 
+                   class="social-button bg-white rounded-xl py-4 px-6 flex items-center shadow-sm w-full relative">
+                    <div class="absolute left-6 text-3xl text-black">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                    <span class="w-full text-center font-semibold text-[#002f6c] text-lg">x.com</span>
+                </a>
+            </div>
         </div>
 
-        <!-- รายการปุ่มลิงก์ Social Media -->
-        <div class="w-full flex flex-col gap-4">
-            
-            <!-- Instagram Button -->
-            <a href="https://www.instagram.com/educationcra" target="_blank" rel="noopener noreferrer" 
-               class="social-button bg-white rounded-xl py-4 px-6 flex items-center shadow-sm w-full relative">
-                <!-- ใช้ gradient สีของ IG -->
-                <div class="absolute left-6 text-3xl" style="background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <span class="w-full text-center font-semibold text-[#002f6c] text-lg">Instagram</span>
-            </a>
-
-            <!-- Facebook Button -->
-            <a href="https://www.facebook.com/educationcra" target="_blank" rel="noopener noreferrer" 
-               class="social-button bg-white rounded-xl py-4 px-6 flex items-center shadow-sm w-full relative">
-                <div class="absolute left-6 text-3xl text-blue-600">
-                    <i class="fab fa-facebook"></i>
-                </div>
-                <span class="w-full text-center font-semibold text-[#002f6c] text-lg">Facebook</span>
-            </a>
-
-            <!-- TikTok Button -->
-            <a href="https://www.tiktok.com/@educationcra" target="_blank" rel="noopener noreferrer" 
-               class="social-button bg-[#f3f4f6] rounded-xl py-4 px-6 flex items-center shadow-sm w-full relative">
-                <div class="absolute left-6 text-3xl text-black">
-                    <i class="fab fa-tiktok"></i>
-                </div>
-                <span class="w-full text-center font-semibold text-[#002f6c] text-lg">TikTok</span>
-            </a>
-
-            <!-- X (Twitter) Button -->
-            <a href="https://x.com/educationcra" target="_blank" rel="noopener noreferrer" 
-               class="social-button bg-white rounded-xl py-4 px-6 flex items-center shadow-sm w-full relative">
-                <div class="absolute left-6 text-3xl text-black">
-                    <i class="fa-brands fa-x-twitter"></i>
-                </div>
-                <span class="w-full text-center font-semibold text-[#002f6c] text-lg">x.com</span>
-            </a>
-            
-        </div>
-
-        <!-- ไอคอน Social Media ขนาดเล็กด้านล่าง (ลด margin ลงเพื่อให้ชิดกับรถมากขึ้น) -->
-        <div class="flex gap-6 mt-6 mb-2 text-2xl text-[#002f6c]">
-            <a href="https://www.facebook.com/educationcra" target="_blank" class="hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/educationcra" target="_blank" class="hover:text-pink-600 transition"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@educationcra" target="_blank" class="hover:text-black transition"><i class="fab fa-tiktok"></i></a>
-            <a href="https://x.com/educationcra" target="_blank" class="hover:text-black transition"><i class="fa-brands fa-x-twitter"></i></a>
-        </div>
-
-        <!-- รูปหมีขับรถพร้อมแอนิเมชัน (เอา mt-auto ออกเพื่อให้ชิดกับไอคอนพอดี) -->
-        <div class="mt-2 flex justify-center w-[110%] sm:w-full z-10 relative">
-            <img src="https://s.imgz.io/2026/11/11/16a705652c95c000b10d1e622e9bb0e2f6f637758130d83f.png" 
-                 alt="Bear driving a car" 
-                 class="bear-swing w-full max-w-[450px] h-auto object-contain origin-bottom">
+        <!-- ส่วนล่าง: ไอคอนเล็ก และ รูปรถ -->
+        <div class="w-full flex flex-col items-center justify-end mt-2 z-10">
+            <div class="flex gap-6 mb-0 text-2xl text-[#002f6c]">
+                <a href="https://www.facebook.com/educationcra" target="_blank" class="hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/educationcra" target="_blank" class="hover:text-pink-600 transition"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@educationcra" target="_blank" class="hover:text-black transition"><i class="fab fa-tiktok"></i></a>
+                <a href="https://x.com/educationcra" target="_blank" class="hover:text-black transition"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <!-- เพิ่ม margin ลบ (-mb-6) เพื่อดึงรถให้ลงไปชิดกับขอบถนนมากขึ้น -->
+            <div class="flex justify-center w-[110%] sm:w-full -mb-6 md:-mb-8">
+                <img src="https://s.imgz.io/2026/11/11/16a705652c95c000b10d1e622e9bb0e2f6f637758130d83f.png" 
+                     alt="Bear driving a car" 
+                     class="bear-swing w-full max-w-[450px] h-auto object-contain origin-bottom">
+            </div>
         </div>
 
     </div>
-
 </body>
 </html>
